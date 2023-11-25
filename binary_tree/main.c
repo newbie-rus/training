@@ -101,3 +101,16 @@ int in_order(Node *ptr_root)
 	return 0;
 }
 
+int bin_tree_search(Node *ptr_root, ELEM_T s_elem)
+{
+	if (ptr_root->data == s_elem)
+		return 1;
+	
+	if (s_elem > ptr_root->data && ptr_root->right_son != NULL)
+		bin_tree_search(ptr_root->right_son, s_elem);
+	else if (s_elem < ptr_root->data && ptr_root->left_son != NULL)
+		bin_tree_search(ptr_root->left_son, s_elem);
+	else
+		return 0;
+}
+

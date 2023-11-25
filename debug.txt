@@ -1,0 +1,248 @@
+Start mazafaka
+{383}{886}{777}{915}{793}{335}{386}{492}{649}{421}
+<<new_array>>
+(383)(886)(777)(915)(793)(335)(386)(492)(649)(421)
+pivot <335>
+left  <383>
+right <421>
+
+[COMPARE]
+arg1 383 / arg2 335 / return 48
+
+[COMPARE]
+arg1 421 / arg2 335 / return 86
+
+[COMPARE]
+arg1 649 / arg2 335 / return 314
+
+[COMPARE]
+arg1 492 / arg2 335 / return 157
+
+[COMPARE]
+arg1 386 / arg2 335 / return 51
+
+[COMPARE]
+arg1 335 / arg2 335 / return 0
+
+(335)(886)(777)(915)(793)(383)(386)(492)(649)(421)
+[COMPARE]
+arg1 886 / arg2 335 / return 551
+
+[COMPARE]
+arg1 793 / arg2 335 / return 458
+
+[COMPARE]
+arg1 915 / arg2 335 / return 580
+
+[COMPARE]
+arg1 777 / arg2 335 / return 442
+
+[COMPARE]
+arg1 886 / arg2 335 / return 551
+
+[COMPARE]
+arg1 335 / arg2 335 / return 0
+
+<<new_array>>
+(886)(777)(915)(793)(383)(386)(492)(649)(421)
+pivot <383>
+left  <886>
+right <421>
+
+[COMPARE]
+arg1 886 / arg2 383 / return 503
+
+[COMPARE]
+arg1 421 / arg2 383 / return 38
+
+[COMPARE]
+arg1 649 / arg2 383 / return 266
+
+[COMPARE]
+arg1 492 / arg2 383 / return 109
+
+[COMPARE]
+arg1 386 / arg2 383 / return 3
+
+[COMPARE]
+arg1 383 / arg2 383 / return 0
+
+(383)(777)(915)(793)(886)(386)(492)(649)(421)
+[COMPARE]
+arg1 777 / arg2 383 / return 394
+
+[COMPARE]
+arg1 793 / arg2 383 / return 410
+
+[COMPARE]
+arg1 915 / arg2 383 / return 532
+
+[COMPARE]
+arg1 777 / arg2 383 / return 394
+
+[COMPARE]
+arg1 383 / arg2 383 / return 0
+
+<<new_array>>
+(777)(915)(793)(886)(386)(492)(649)(421)
+pivot <386>
+left  <777>
+right <421>
+
+[COMPARE]
+arg1 777 / arg2 386 / return 391
+
+[COMPARE]
+arg1 421 / arg2 386 / return 35
+
+[COMPARE]
+arg1 649 / arg2 386 / return 263
+
+[COMPARE]
+arg1 492 / arg2 386 / return 106
+
+[COMPARE]
+arg1 386 / arg2 386 / return 0
+
+(386)(915)(793)(886)(777)(492)(649)(421)
+[COMPARE]
+arg1 915 / arg2 386 / return 529
+
+[COMPARE]
+arg1 886 / arg2 386 / return 500
+
+[COMPARE]
+arg1 793 / arg2 386 / return 407
+
+[COMPARE]
+arg1 915 / arg2 386 / return 529
+
+[COMPARE]
+arg1 386 / arg2 386 / return 0
+
+<<new_array>>
+(915)(793)(886)(777)(492)(649)(421)
+pivot <777>
+left  <915>
+right <421>
+
+[COMPARE]
+arg1 915 / arg2 777 / return 138
+
+[COMPARE]
+arg1 421 / arg2 777 / return -356
+
+(421)(793)(886)(777)(492)(649)(915)
+[COMPARE]
+arg1 793 / arg2 777 / return 16
+
+[COMPARE]
+arg1 649 / arg2 777 / return -128
+
+(421)(649)(886)(777)(492)(793)(915)
+[COMPARE]
+arg1 886 / arg2 777 / return 109
+
+[COMPARE]
+arg1 492 / arg2 777 / return -285
+
+(421)(649)(492)(777)(886)(793)(915)
+[COMPARE]
+arg1 777 / arg2 777 / return 0
+
+[COMPARE]
+arg1 886 / arg2 777 / return 109
+
+[COMPARE]
+arg1 777 / arg2 777 / return 0
+
+<<new_array>>
+(421)(649)(492)(777)
+pivot <492>
+left  <421>
+right <777>
+
+[COMPARE]
+arg1 421 / arg2 492 / return -71
+
+[COMPARE]
+arg1 649 / arg2 492 / return 157
+
+[COMPARE]
+arg1 777 / arg2 492 / return 285
+
+[COMPARE]
+arg1 492 / arg2 492 / return 0
+
+(421)(492)(649)(777)
+<<new_array>>
+(421)(492)
+pivot <492>
+left  <421>
+right <492>
+
+[COMPARE]
+arg1 421 / arg2 492 / return -71
+
+[COMPARE]
+arg1 492 / arg2 492 / return 0
+
+[COMPARE]
+arg1 649 / arg2 492 / return 157
+
+[COMPARE]
+arg1 492 / arg2 492 / return 0
+
+<<new_array>>
+(649)(777)
+pivot <777>
+left  <649>
+right <777>
+
+[COMPARE]
+arg1 649 / arg2 777 / return -128
+
+[COMPARE]
+arg1 777 / arg2 777 / return 0
+
+[COMPARE]
+arg1 886 / arg2 777 / return 109
+
+[COMPARE]
+arg1 777 / arg2 777 / return 0
+
+<<new_array>>
+(886)(793)(915)
+pivot <793>
+left  <886>
+right <915>
+
+[COMPARE]
+arg1 886 / arg2 793 / return 93
+
+[COMPARE]
+arg1 915 / arg2 793 / return 122
+
+[COMPARE]
+arg1 793 / arg2 793 / return 0
+
+(793)(886)(915)
+<<new_array>>
+(886)(915)
+pivot <915>
+left  <886>
+right <915>
+
+[COMPARE]
+arg1 886 / arg2 915 / return -29
+
+[COMPARE]
+arg1 915 / arg2 915 / return 0
+
+[COMPARE]
+arg1 1005128192 / arg2 915 / return 1005127277
+
+[COMPARE]
+arg1 915 / arg2 915 / return 0
+
+[335][383][386][421][492][649][777][793][886][915]

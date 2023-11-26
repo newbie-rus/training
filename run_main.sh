@@ -20,4 +20,4 @@ integer-divide-by-zero,leak,nonnull-attribute,null,object-size,return,\
 returns-nonnull-attribute,shift,signed-integer-overflow,undefined,\
 unreachable,vla-bound,vptr"
 
-g++ $CXXFLAGS qsort.cpp -o main 
+g++ $CXXFLAGS myqsort.cpp -o main 

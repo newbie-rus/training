@@ -14,9 +14,9 @@ int compare (const void *arg1, const void *arg2);
 
 int main()
 {
-	const int amount = 100;
+	const int amount = 10;
 	printf("Start mazafaka\n");
-	int nums[amount] = {};
+	int *nums = (int*)calloc(amount, sizeof(int));
 	
 	for (int i = 0; i < amount; i++)
 		nums[i] = rand() % 1000;
@@ -25,7 +25,7 @@ int main()
 		printf("{%3d}", nums[i]);
 	printf("\n");
 
-	my_qsort(nums, sizeof(nums) / sizeof(nums[0]), sizeof(int), compare);
+	my_qsort(nums, amount, sizeof(int), compare);
 
 	for (int i = 0; i < amount; i++)
 		printf("[%3d]", nums[i]);
@@ -39,94 +39,37 @@ int main()
 	}
 	printf("\nCHECK WORK MYQSORT: <<%d>>\n", j);
 
+	free(nums);
 	return 0;
 }
 
 int compare (const void *arg1, const void *arg2)
 {
-	// printf("[COMPARE]\n");
-	// printf("arg1 %3d / arg2 %3d / return %d\n\n", *((int*)arg1), *((int*)arg2), *((int*)arg1) - *((int*)arg2));
-
 	return *((const int*)arg1) - *((const int*)arg2);
 }
 
 void my_qsort(void* array, size_t sz_array, size_t sz_elem, int (*compare)(const void*, const void*))
 {
 	char *pivot      = (char*)array + (sz_array / 2) * sz_elem;
-	// char *pivot_     = (char*)array + (sz_array / 2) * sz_elem;
 	char *array_end  = (char*)array + sz_elem * (sz_array - 1);
 	char *left       = (char*)array;
 	char *right      = array_end;
-
-	printf("<<new_array>>\n");
-	printf("length array {%lu}\n", sz_array);
-	for (size_t i = 0; i < sz_array; i++)
-	{
-		if (left == (char*)((int*)array + i))
-			printf("%s(%3d)%s", GREEN, *((int*)array + i), RESET);
-		else if (right == (char*)((int*)array + i))
-			printf("%s(%3d)%s", RED, *((int*)array + i), RESET);
-		else if (pivot == (char*)((int*)array + i))
-			printf("%s(%3d)%s", YELLOW, *((int*)array + i), RESET);
-		else	
-			printf("(%3d)", *((int*)array + i));
-	}
-	printf("\n");
-
-	printf("pivot <%3d>\n", *(int*)pivot);
-	printf("left  <%3d>\n", *(int*)left);
-	printf("right <%3d>\n", *(int*)right);
-	printf("\n");
 
 	if (sz_array == 2)
 	{
 		if (compare(left, right) > 0)
 			swap(left, right, sz_elem);
-		
-		for (size_t i = 0; i < sz_array; i++)
-		{
-			if (left == (char*)((int*)array + i))
-				printf("%s(%3d)%s", GREEN, *((int*)array + i), RESET);
-			else if (right == (char*)((int*)array + i))
-				printf("%s(%3d)%s", RED, *((int*)array + i), RESET);
-			else	
-				printf("(%3d)", *((int*)array + i));
-		}
-		printf("\n");
 
 		return;
 	} 
 
 	while (left < right)
 	{
-		int tmp = compare(left, pivot); 
-		printf("tmp[%d]\n", tmp);
-		while (tmp < 0 && left < right && left <= pivot) 
-		{
+		while (compare(left, pivot) < 0 && left < right && left <= pivot) 
 			left = left + sz_elem;
-			tmp = compare(left, pivot);
-			printf("tmp[%d]\n", tmp);
-		}
 
-		tmp = compare(right, pivot);
-		printf("tmp[%d]\n", tmp);
-		while (tmp > 0 && left < right && right >= pivot)
-		{
+		while (compare(right, pivot) > 0 && left < right && right >= pivot)
 			right = right - sz_elem;
-			tmp = compare(right, pivot);
-			printf("tmp[%d]\n", tmp);
-		}
-
-		for (size_t i = 0; i < sz_array; i++)
-		{
-			if (left == (char*)((int*)array + i))
-				printf("%s(%3d)%s", GREEN, *((int*)array + i), RESET);
-			else if (right == (char*)((int*)array + i))
-				printf("%s(%3d)%s", RED, *((int*)array + i), RESET);
-			else	
-				printf("(%3d)", *((int*)array + i));
-		}
-		printf("\n");
 
 		if (left < right)
 		{	
@@ -143,24 +86,14 @@ void my_qsort(void* array, size_t sz_array, size_t sz_elem, int (*compare)(const
 				right -= sz_elem;
 			}
 			else
+			{
 				swap(left, right, sz_elem);
-			// sort_finish = false;
+				right -= sz_elem;
+				left  += sz_elem;
+			}
 		}
 		else if (left == right)
 			left += sz_elem;
-
-		for (size_t i = 0; i < sz_array; i++)
-		{
-			if (left == (char*)((int*)array + i))
-				printf("%s(%3d)%s", GREEN, *((int*)array + i), RESET);
-			else if (right == (char*)((int*)array + i))
-				printf("%s(%3d)%s", RED, *((int*)array + i), RESET);
-			else if (pivot == (char*)((int*)array + i))
-				printf("%s(%3d)%s", YELLOW, *((int*)array + i), RESET);
-			else	
-				printf("(%3d)", *((int*)array + i));
-		}
-		printf("\n");
 	}
 
 	if (((size_t)(pivot - (char*)array) / sz_elem) > 1)
